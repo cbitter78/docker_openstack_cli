@@ -4,6 +4,8 @@ This is my docker image I use to interact with openstack.
 
 When you use more than one version of openstack because your doing dev work or any other reason you may need different versions of the openstack CLI clients. This can cause issues if you try to install them locally. You can use different python environments but why? We have DOCKER!
 
+If you want a docker container that has the lates clients use https://hub.docker.com/r/chrisrock/openstack-cli/~/dockerfile/
+
 ### Branches
 
 Differnt branches of this project, each with a docker file that can produce a continer with diffent versions of CLI installed.   For example icehouse would have the CLI clinets for icehouse.
