@@ -1,5 +1,5 @@
 VERSION=icehouse
-RELEASE=2
+RELEASE=3
 
 COLOR_NORMAL=""
 COLOR_RESET="\033[m"
@@ -18,3 +18,6 @@ publish: build
 	@echo ${COLOR_BOLD}➭${COLOR_RESET} ${COLOR_GREEN}Publishing Version ${VERSION}-${RELEASE}${COLOR_RESET}
 	@docker push cbitter78/openstack_cli:${VERSION}-${RELEASE}
 
+run: build
+	@echo ${COLOR_BOLD}➭${COLOR_RESET} ${COLOR_GREEN}Running ${NAME}:${VERSION}-${RELEASE}${COLOR_RESET}
+	@docker run --rm -ti --env=DOCKER_USER=${USER} -v ${HOME}:/${USER} cbitter78/openstack_cli:${VERSION}-${RELEASE} 
