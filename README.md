@@ -12,10 +12,8 @@ Differnt branches of this project, each with a docker file that can produce a co
 ## Usage
 
 ```
-docker pull cbitter78/openstack_cli
-docker run --rm -ti -v ~/openstack:/openstack cbitter78/openstack_cli:icehouse-3
+docker run --rm -ti --env=DOCKER_USER=$USER --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:icehouse-3
 
-```
 
 You can do as I do and mount a folder that holds your openstack env files like this
 
