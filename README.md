@@ -12,12 +12,13 @@ Differnt branches of this project, each with a docker file that can produce a co
 ## Usage
 
 ```
-docker run --rm -ti --env=DOCKER_USER=$USER --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:icehouse-3
-
-
-You can do as I do and mount a folder that holds your openstack env files like this
-
-```
--v ~/openstack:/openstack
+docker run --rm -ti -e DOCKER_USER=$USER \
+					-e OS_REGION_NAME=$OS_REGION_NAME \
+					-e OS_TENANT_ID=$OS_TENANT_ID \
+					-e OS_PASSWORD=$OS_PASSWORD \
+					-e OS_AUTH_URL=$OS_AUTH_URL \
+					-e OS_USERNAME=$OS_USERNAME \
+					-e OS_TENANT_NAME=$OS_TENANT_NAME \
+    --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:icehouse-4
 
 ```
