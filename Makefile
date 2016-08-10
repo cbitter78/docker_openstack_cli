@@ -1,5 +1,5 @@
 VERSION=icehouse
-RELEASE=4
+RELEASE=3
 NAME=cbitter78/openstack_cli
 
 COLOR_NORMAL=""
