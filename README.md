@@ -11,7 +11,7 @@ Differnt branches of this project, each with a docker file that can produce a co
 
 ## Usage
 
-```
+```shell
 docker run --rm -ti -e DOCKER_USER=$USER \
 					-e OS_REGION_NAME=$OS_REGION_NAME \
 					-e OS_TENANT_ID=$OS_TENANT_ID \
@@ -19,6 +19,13 @@ docker run --rm -ti -e DOCKER_USER=$USER \
 					-e OS_AUTH_URL=$OS_AUTH_URL \
 					-e OS_USERNAME=$OS_USERNAME \
 					-e OS_TENANT_NAME=$OS_TENANT_NAME \
-    --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:icehouse-4
+    --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:icehouse-3
+
+```
+
+Or you can use an alias
+
+```shell
+alias os_cli='docker run --rm -ti -e DOCKER_USER=$USER -e OS_REGION_NAME=$OS_REGION_NAME -e OS_TENANT_ID=$OS_TENANT_ID -e OS_PASSWORD=$OS_PASSWORD -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:icehouse-3'
 
 ```
