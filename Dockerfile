@@ -14,7 +14,10 @@ RUN curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | 
 RUN pip install --upgrade pip setuptools virtualenv virtualenvwrapper
 
 RUN pip install 'python-novaclient==2.26.0'
-RUN pip install 'python-neutronclient==2.6.0'
+RUN pip install 'python-neutronclient==2.3.4'
+RUN pip install 'python-keystoneclient==1.6.0'
+RUN pip install 'python-glanceclient==0.19.0'
+RUN pip install 'python-swiftclient==2.0.3'
 RUN pip install --upgrade ndg-httpsclient
 RUN wget -t 3 -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip &&  \
        unzip -d /usr/sbin /tmp/terraform.zip && rm /tmp/terraform.zip
