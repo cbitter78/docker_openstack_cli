@@ -13,19 +13,21 @@ Differnt branches of this project, each with a docker file that can produce a co
 
 ```shell
 docker run --rm -ti -e DOCKER_USER=$USER \
+					-e OS_PROJECT_ID=$OS_PROJECT_ID \
 					-e OS_REGION_NAME=$OS_REGION_NAME \
-					-e OS_TENANT_ID=$OS_TENANT_ID \
-					-e OS_PASSWORD=$OS_PASSWORD \
+					-e OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME \
+					-e OS_PROJECT_NAME=$OS_PROJECT_NAME \
+					-e OS_IDENTITY_API_VERSION=$OS_IDENTITY_API_VERSION \
 					-e OS_AUTH_URL=$OS_AUTH_URL \
 					-e OS_USERNAME=$OS_USERNAME \
-					-e OS_TENANT_NAME=$OS_TENANT_NAME \
+					-e OS_PASSWORD=$OS_PASSWORD \
     --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:latest
 ```
 
 Or you can use an alias
 
 ```shell
-alias os_cli='docker run --rm -ti -e DOCKER_USER=$USER -e OS_REGION_NAME=$OS_REGION_NAME -e OS_TENANT_ID=$OS_TENANT_ID -e OS_PASSWORD=$OS_PASSWORD -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_TENANT_NAME=$OS_TENANT_NAME --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:latest'
+alias os_cli='docker run --rm -ti -e DOCKER_USER=$USER -e OS_PROJECT_ID=$OS_PROJECT_ID -e OS_REGION_NAME=$OS_REGION_NAME -e OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_PROJECT_NAME=$OS_PROJECT_NAME -e OS_IDENTITY_API_VERSION=$OS_IDENTITY_API_VERSION -e OS_AUTH_URL=$OS_AUTH_URL -e OS_USERNAME=$OS_USERNAME -e OS_PASSWORD=$OS_PASSWORD --volume $PWD:/`basename $PWD` --volume ~/:/$USER cbitter78/openstack_cli:latest'
 
 ```
 This will start the docker container and give you a shell with your home folder mounted under / and all the needed env vars passed.
